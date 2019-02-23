@@ -1,0 +1,506 @@
+﻿html {
+	background-color: rgb(242, 242, 242);
+	font-family: Arial, Helvetica, sans-serif;
+}
+body, html {
+	/* needed for the parllax image to work*/
+	height: 100%;
+}
+body {
+	/* so that content goes to edge of the page*/
+	margin: 0;
+}
+/*the whole top section*/
+
+header {
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 1px 5px 2px #3E3E3E;
+	display: block;
+	width: 100%;
+	height: 88px;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 9999;
+}
+/*banner logo*/
+
+.logo {
+	height: 88px;
+	display: inline-block;
+	margin: 0px 0 12px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.logo img {
+	height: 88px;
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+/*banner image hover effect*/
+
+.logo a img:hover {
+	/*opacity: 0;*/
+	animation-name: banner_image;
+	animation-duration: 0.2s;
+	animation-fill-mode: both;
+}
+/*banner hover animation*/
+
+@keyframes banner_image {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/*nav bar style*/
+
+.nav_bar ul {
+	list-style-type: none;
+	overflow: hidden;
+	margin: 0px 48px 0 0px;
+	float: right;
+}
+nav ul li {
+	display: inline-block;
+	float: left;
+}
+/*links*/
+
+.nav_bar ul li a {
+	margin: 0;
+	display: inline-block;
+	font-weight: bold;
+	text-align: center;
+	padding: 28px 0 0 0;
+	float: right;
+	width: 184px;
+	height: 60px;
+	text-decoration: none;
+	color: rgb(97, 137, 47);
+	font-size: 20px;
+}
+/*border for current page link*/
+
+.nav_bar ul li.current a {
+	border-top: 3px rgb(97, 137, 47) solid;
+	padding: 25px 0 0 0;
+}
+/*aniamtion*/
+
+.nav_bar a:hover, .nav_bar a:active {
+	animation-name: nav_bar;
+	animation-duration: 0.4s;
+	animation-fill-mode: both;
+}
+@keyframes nav_bar {
+	0% {
+		height: 60px;
+	}
+	60% {
+		background-color: rgb(97, 137, 47);
+		color: rgb(255, 255, 255);
+	}
+	100% {
+		height: 72px;
+		background-color: rgb(97, 137, 47);
+		color: rgb(255, 255, 255);
+		border-radius: 0 0 2px 2px;
+	}
+}
+/* code for the button transform animation used on the mobile site. is hidden on desktop site*/
+
+#nav:checked+.nav_btn {
+	transform: rotate(45deg);
+}
+#nav:checked+.nav_btn i {
+	background: #000;
+	transition: transform 0.2s ease;
+}
+#nav:checked+.nav_btn i:nth-child(1) {
+	transform: translateY(6px) rotate(180deg);
+}
+#nav:checked+.nav_btn i:nth-child(2) {
+	opacity: 0;
+}
+#nav:checked+.nav_btn i:nth-child(3) {
+	transform: translateY(-6px) rotate(90deg);
+}
+#nav:checked~.nav_bar {
+	z-index: 9990;
+	opacity: 1;
+	display: inline-block;
+}
+#nav:checked~.nav_bar ul li a {
+	opacity: 1;
+	transform: translateX(0);
+}
+/* to hide button on desktop site*/
+
+.hidden {
+	display: none;
+}
+/*parallax image*/
+
+.parallax {
+	/*min-height: 600px;*/
+	height: 80%;
+	/*parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+/*different parallax images for the different pages*/
+
+.home {
+	/* The parallax image used on home page*/
+	background-image: url('images/workshop.jpg');
+}
+.bikes_for_sale {
+	/* The parallax image used on bikes for sale page*/
+	background-image: url("images/bike parllex.jpg")
+}
+.volunteers {
+	/* The parallax image used on volunteers page*/
+	background-image: url('images/peter helping stranger 2.jpg');
+}
+.contact_us {
+	/* The parallax image used on contact us page*/
+	background-image: url('images/building.jpg');
+}
+/*cross page code*/
+
+h1 {
+	font-size: 32px;
+	margin: auto;
+	margin-top: -32px;
+	margin-bottom: 20px;
+	padding: 16px 0 16px 0;
+	color: rgb(47, 47, 47);
+	text-align: center;
+	border-radius: 2px;
+	text-align: center;
+	background-color: rgb(134, 194, 50);
+	width: 1152px;
+}
+h2 {
+	font-size: 28px;
+	height: 28px;
+	text-align: center;
+	color: rgb(97, 137, 47);
+	padding-top: 20px;
+	margin: 0 0 -8px 0;
+}
+h3 {
+	font-size: 24px;
+	color: rgb(47, 47, 47);
+	padding: 16px 0 16px 0;
+	margin: 0 0 0 0;
+	text-align: center;
+}
+p {
+	font-size: 18px;
+	line-height: 26px;
+	text-align: justify;
+	padding: 16px 36px 20px 30px;
+}
+img {
+	border-radius: 1px;
+}
+/*class content to have the card layout. each "card" is a sepecterate content div*/
+
+.content {
+	background-color: white;
+	width: 1152px;
+	margin: auto;
+	height: auto;
+	box-shadow: 0 0 6px 1.5px darkgrey;
+	border-radius: 2px;
+	margin-bottom: 20px;
+}
+/*smaller cards with centered text*/
+
+.small {
+	width: 1024px;
+}
+.small p {
+	text-align: center;
+}
+/*content boxs with images in them. left, right refering to side image is on*/
+
+.left img, .left .wow_slider {
+	width: 360px;
+	margin: 16px 36px 16px 16px;
+	float: left;
+}
+.right img, .right .wow_slider {
+	width: 360px;
+	padding: 0;
+	margin: 16px 16px 16px 36px;
+	float: right;
+}
+.left, .right {
+	height: 392px;
+}
+/* different sizing for card with wow sliders*/
+.bike_image .wow_slider {
+	height: 280px;
+	width: auto;
+}
+.bike_image {
+	height: 316px;
+}
+/* used to style lists inside of the content card*/
+.content ul {
+	padding: 16px 36px 0 30px;
+}
+.content li {
+	font-size: 18px;
+	line-height: 26px;
+	text-align: justify;
+}
+.round img {
+	border-radius: 50%;
+}
+table {
+	border-collapse: collapse;
+}
+td {
+	padding-left: 10px;
+}
+/*contact us table styling*/
+.info_type {
+	width: 284px;
+	background-color: rgb(204, 204, 204);
+	height: 42px;
+}
+.map {
+	width: 100%;
+	height: 80%;
+}
+.map iframe {
+	width: 100%;
+	height: 100%;
+}
+/*footer*/
+
+.donation {
+	background-color: rgb(134, 194, 50);
+}
+.donation p {
+	margin: auto;
+	width: 1024px;
+	text-align: center;
+}
+.donation h3 {
+	padding: 16px 0 0px 0;
+	margin: 0;
+}
+footer {
+	background-color: rgb(47, 47, 47);
+	text-align: center;
+}
+footer ul {
+	list-style-type: none;
+	padding: 16px;
+}
+footer li, footer a {
+	color: rgb(134, 194, 50);
+	display: inline-block;
+	text-decoration: none;
+}
+footer .copyright {
+	color: rgb(97, 137, 47);
+	padding-bottom: 32px;
+}
+@media screen and (max-width: 1254px) {
+	/*to change mobile font if needed*/
+	html {
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	/*mobile topsection*/
+	header {
+		height: 76px;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	/*moblie logo*/
+	.logo img {
+		padding: 0;
+		height: 76px;
+		margin: auto;
+	}
+	/*no hover effect for moblie site*/
+	.logo a:active, .logo a img:hover {
+		animation-name: none;
+	}
+	/* make the right image show*/
+	.logo banner {
+		z-index: 5;
+	}
+	/*mobile navbar. is normally hidden unless btn is checked*/
+	.nav_bar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		display: none;
+		background: rgb(255 255 255);
+		opacity: 0;
+		transition: all 0.2s ease;
+	}
+	.nav_bar ul {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+	}
+	.nav_bar ul li {
+		padding: 0;
+		margin: 0;
+		display: block;
+		float: none;
+		transform: translateX(-38px);
+	}
+	.nav_bar ul li a {
+		opacity: 0;
+		width: 100%;
+		padding-top: 28px;
+		padding-right: 32px;
+		/*animation of links when opening navbar*/
+		/*can not use animation due to wow slider
+		transition: all 0.2s ease;
+		transform: translateX(-20px);*/
+		display: block;
+		text-align: right;
+	}
+	.nav_bar a:active, .nav_bar a:hover {
+		animation-name: none;
+	}
+	.nav_bar ul li.current a {
+		border: none;
+		padding-right: 32px;
+	}
+	/*styling of button to open navbar on mobile*/
+	.nav_btn {
+		position: fixed;
+		right: 14px;
+		top: 14px;
+		display: block;
+		width: 48px;
+		height: 48px;
+		cursor: pointer;
+		z-index: 9999;
+		border-radius: 50%;
+	}
+	/* <i> is the one of the 3 lines in the button shape*/
+	.nav_btn i {
+		display: block;
+		width: 20px;
+		height: 2px;
+		background: #000;
+		border-radius: 2px;
+		margin-left: 14px;
+	}
+	.nav_btn i:nth-child(1) {
+		margin-top: 16px;
+	}
+	.nav_btn i:nth-child(2) {
+		margin-top: 4px;
+		opacity: 1;
+	}
+	.nav_btn i:nth-child(3) {
+		margin-top: 4px;
+	}
+	/* animation of the links moving sideways when navar is opened*/
+	/* animation does not work if button of image slider is inteaded to be used
+	.nav_bar ul li:nth-child(1) a {
+		transition-delay: 0.2s;
+	}
+	.nav_bar ul li:nth-child(2) a {
+		transition-delay: 0.3s;
+	}
+	.nav_bar ul li:nth-child(3) a {
+		transition-delay: 0.4s;
+	}
+	.nav_bar ul li:nth-child(4) a {
+		transition-delay: 0.5s;
+	}
+	.nav_bar ul li:not(:first-child) {
+		margin-left: 0;
+	}*/
+	/* no parallax image on mobile site*/
+	.parallax {
+		display: none;
+	}
+	/*cross page code  for moblie*/
+	h1 {
+		width: 95%;
+		margin: auto;
+		margin-top: 100px;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.content {
+		width: 100%;
+		margin-top: 0;
+		border-radius: 0;
+	}
+	img {
+		border-radius: 0;
+	}
+	/*no floating images on moblie so height auto works as it should*/
+	.left, .right {
+		height: auto;
+	}
+	/* styling for images and wow slider*/
+	.content.left img, .content.right img, .content.left .wow_slider, .content.right .wow_slider {
+		float: inherit;
+		margin: 0;
+		padding-top: 16px;
+		padding-bottom: 4px;
+		margin-left: calc(50% - 180px);
+	}
+	.content.left .wow_slider, .content.right .wow_slider {
+		margin: auto;
+	}
+	/* could be used to resize wow slider however currently wowslider does not change size.
+	.content.left .wow_slider, .content.right .wow_slider {
+		padding: 0;
+		height: auto;
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	*/
+	.info_type {
+		width: 35%;
+		height: 42px;
+	}
+	/*footer moblie*/
+	.donation p {
+		margin: auto;
+		width: 80%;
+		text-align: center;
+	}
+	footer ul li a {
+		font-size: 14px;
+	}
+	footer .copyright {
+		font-size: 12px;
+	}
+}
